@@ -20,7 +20,7 @@ class setup_server(commands.Cog):
             member = guild.get_member(memberi.id)
             image = member.display_avatar.url
             data = {"name": member.name, "nick": member.nick, "id": member.id, "image": str(image),
-                    "join": member.joined_at}
+                    "join": member.joined_at,"created": member.created_at}
             insert_one(guild.id, "members", data)
         for text in guild.text_channels:
             data = {"name": text.name, "id": text.id, "created": text.created_at, "image": "text.png"}
