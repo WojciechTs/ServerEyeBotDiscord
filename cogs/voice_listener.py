@@ -21,15 +21,15 @@ class voice_listener(commands.Cog):
         date = datetime.now()
 
         if before is None:
-            data = {"member": member, "date": date, "tag": "join"}
+            data = {"member": member.id, "date": date, "tag": "join"}
             insert_one(guild,after,data)
         elif after is None:
-            data = {"member": member, "date": date, "tag": "exit"}
+            data = {"member": member.id, "date": date, "tag": "exit"}
             insert_one(guild, before, data)
         elif before is not None and after is not None:
-            data = {"member": member, "date": date, "tag": "exit"}
+            data = {"member": member.id, "date": date, "tag": "exit"}
             insert_one(guild, before, data)
-            data = {"member": member, "date": date, "tag": "join"}
+            data = {"member": member.id, "date": date, "tag": "join"}
             insert_one(guild, after, data)
 
 
