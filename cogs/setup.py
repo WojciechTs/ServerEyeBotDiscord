@@ -14,7 +14,7 @@ class setup_server(commands.Cog):
         data = {"name": guild.name, "id": guild.id, "members": [member.id for member in guild.members],
                 "text": [text.id for text in guild.text_channels],
                 "voice": [voice.id for voice in guild.voice_channels],
-                "memeber_count": len(guild.members), "date": datetime.now(), "created": guild.created_at}
+                "memeber_count": len(guild.members), "date": datetime.now(), "created": guild.created_at, "image": guild.icon.url}
         insert_one(guild.id, "info", data)
         for memberi in guild.members:
             member = guild.get_member(memberi.id)
